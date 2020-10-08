@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 
 import AppRouter from "./routers/AppRouter";
 import configureStore from "./store/configureStore";
@@ -23,19 +24,25 @@ const store = configureStore();
 //   console.log(getVisibleExpenses(state.expenses, state.filters));
 // });
 
-store.dispatch(addExpense({ description: "Macbook Pro", amount: 1200 }));
+store.dispatch(
+  addExpense({ description: "Macbook Pro", amount: 1200, createdAt: 10000 })
+);
 
 store.dispatch(addExpense({ description: "Iphone 12", amount: 1000 }));
 
-// store.dispatch(setTextFilter("oxz"));
-
-// store.dispatch(setTextFilter("mac"));
-
-store.dispatch(setTextFilter("o"));
+store.dispatch(
+  addExpense({ description: "Ipad Pro", amount: 900, createdAt: 20000 })
+);
 
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
 
 console.log(visibleExpenses);
 
-ReactDOM.render(<AppRouter />, document.getElementById("app"));
+const jsx = (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+);
+
+ReactDOM.render(jsx, document.getElementById("app"));
