@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
+import moment from "moment";
 
 import AppRouter from "./routers/AppRouter";
 import configureStore from "./store/configureStore";
@@ -25,14 +26,20 @@ const store = configureStore();
 // });
 
 store.dispatch(
-  addExpense({ description: "Macbook Pro", amount: 1200, createdAt: 10000 })
+  addExpense({
+    description: "Macbook Pro",
+    amount: 1200,
+    createdAt: 1602333902,
+  })
 );
 
 store.dispatch(addExpense({ description: "Iphone 12", amount: 1000 }));
 
 store.dispatch(
-  addExpense({ description: "Ipad Pro", amount: 900, createdAt: 20000 })
+  addExpense({ description: "Ipad Pro", amount: 900, createdAt: 1602333901 })
 );
+
+console.log(moment().format("X"));
 
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
