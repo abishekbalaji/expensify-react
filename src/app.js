@@ -25,19 +25,19 @@ const store = configureStore();
 //   console.log(getVisibleExpenses(state.expenses, state.filters));
 // });
 
-store.dispatch(
-  addExpense({
-    description: "Macbook Pro",
-    amount: 1200,
-    createdAt: 1602333902,
-  })
-);
+// store.dispatch(
+//   addExpense({
+//     description: "Macbook Pro",
+//     amount: 1200,
+//     createdAt: 1602333902,
+//   })
+// );
 
-store.dispatch(addExpense({ description: "Iphone 12", amount: 1000 }));
+// store.dispatch(addExpense({ description: "Iphone 12", amount: 1000 }));
 
-store.dispatch(
-  addExpense({ description: "Ipad Pro", amount: 900, createdAt: 1602333901 })
-);
+// store.dispatch(
+//   addExpense({ description: "Ipad Pro", amount: 900, createdAt: 1602333901 })
+// );
 
 console.log(moment().format("X"));
 
